@@ -18,7 +18,27 @@ def exe1(a, b, c, s):
 def exe2(l, m, h, l_vd, l_am, l_vm, l_az, l_lj):
     @always_comb
     def comb():
-        pass
+        l_vd.next = False
+        l_am.next = False
+        l_vm.next = False
+        l_az.next = False
+        l_lj.next = False
+
+
+        if l and not(m) and not(h):
+            l_vd.next = True
+        elif l and m and not(h):
+            l_am.next = True
+        elif l and m and h:
+            l_vm.next = True
+        elif not(l) and not(m) and not(h):
+            l_az.next = True
+        elif (h and not(l) and m) or (h and l and not(m)) or (h and not(l) and not(m)):
+            l_lj.next = True
+        elif not(h) and m and not(l):
+            l_lj.next = True
+    
+
 
     return instances()
 
